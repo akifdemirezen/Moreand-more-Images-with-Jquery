@@ -1,0 +1,69 @@
+<script src="jquery.js"> </script>
+<head>
+
+<script>
+
+$(document).ready(function() {
+    var images = $(".handler > div").hide(), x = 1;
+    var showMore = $('#showMore');
+    
+    var funcs = {
+       'showMore': function() { 
+	   ++x; show(); 
+	   }
+      
+    }
+    $('.controls').click(function(e){
+        return (funcs[e.target.id] || function(){})(), false;
+    });
+    function show() {
+        images.hide().filter(function(i){ 
+		return i < (x * 3); }).show();
+        showMore.show().filter(function(){ 
+		return !images.is(':hidden'); }).hide();
+        
+    }
+    show();
+});
+
+</script>
+
+<style type="text/css">
+.handler {width: 1600px; margin-left:250px; } .handler > div  {display: inline-block;}
+#showMore {margin-left:900px; } 
+</style>
+</head>
+<body bgcolor="#00CCFF">
+<div class="handler" >
+<div class="col-md-4"><div class="livery-article"><img src="images\1.jpg"></div></div>
+<div class="col-md-4">
+<div class="livery-article"><img src="images\3.jpg"></div></div>
+<div class="col-md-4">
+<div class="livery-article"><img src="images\4.jpg"></div></div>
+<div class="col-md-4">
+<div class="livery-article"><img src="images\5.jpg"></div></div>
+<div class="col-md-4">
+<div class="livery-article"><img src="images\6.jpg"></div></div>
+<div class="col-md-4">
+<div class="livery-article"><img src="images\7.jpg"></div></div>
+<div class="col-md-4">
+<div class="livery-article"><img src="images\8.jpg"></div></div>
+<div class="col-md-4">
+<div class="livery-article"><img src="images\9.jpg"></div></div>
+<div class="col-md-4">
+<div class="livery-article"><img src="images\10.jpg"></div></div>
+<div class="col-md-4">
+<div class="livery-article"><img src="images\11.jpg"></div></div>
+<div class="col-md-4">
+<div class="livery-article"><img src="images\12.jpg"></div></div>
+<div class="col-md-4">
+<div class="livery-article"><img src="images\13.jpg"></div></div>
+
+</div><br /><div class="col-md-6 controls">
+<button id="showMore">SHOW MORE IMAGES</button> 
+
+
+</body>
+
+
+
